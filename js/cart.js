@@ -28,15 +28,14 @@ function clearCart() {
 
 // Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
-  //Find the table body
   let tBody = document.querySelector("tbody");
 
-  for(let i in cart.items){
+  for (let i in cart.items) {
     let tr = document.createElement('tr');
     tBody.appendChild(tr);
 
     let tdDelete = document.createElement('td');
-    tdDelete.textContent = 'Delete';
+    tdDelete.textContent = 'X';
     tr.appendChild(tdDelete);
 
     let tdQuantity = document.createElement('td');
@@ -47,26 +46,23 @@ function showCart() {
     tdName.textContent = `${cart.items[i].product}`;
     tr.appendChild(tdName);
   }
-  // Iterate over the items in the cart
-  // Create a TR
-  // Create a TD for the delete link, quantity,  and the item
-  // Add the TR to the TBODY and each of the TD's to the TR
-
 }
 
 
 function removeItemFromCart(event) {
-  console.log(cart);
-  if(event.target.innerHTML === 'Delete'){
-    cart.removeItem(event.target.parentNode.sectionRowIndex);
-    cart.saveToLocalStorage();
+  let location = event.target.parentNode.sectionRowIndex;
+  let confirm = prompt(`Are you sure you want to remove ${cart.items[location].quantity} ${cart.items[location].product}(s) [y/n]`);
+  if (confirm.toLowerCase() === 'y' || confirm.toLowerCase() === 'yes') {
+    if (event.target.innerHTML === 'X') {
+      cart.removeItem(location);
+      cart.saveToLocalStorage();
+      renderCart();
+    }
+  } else {
     renderCart();
   }
-  // When a delete link is clicked, use cart.removeItem to remove the correct item
-  // Save the cart back to local storage
-  // Re-draw the cart table
 }
-// This will initialize the page and draw the cart on screen
+
 
 const tBodyListener = document.querySelector("tbody");
 tBodyListener.addEventListener('click', removeItemFromCart);

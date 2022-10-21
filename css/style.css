@@ -1,5 +1,122 @@
 /* TODO: Make it awesome */
-td {
-  padding: 10px;
+body {
+  width: 100%;
+}
+
+/* header style */
+header {
+  height: 4rem;
+  background-color: rgb(81, 154, 187);
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+header nav ul {
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+header nav ul li {
+  margin-left: 10px;
+}
+
+/* main style */
+main {
+  width: 100%;
+}
+
+.deck {
+  border-bottom: 1px black solid;
+  margin-bottom: 1rem;
+  padding-bottom: 10px;
+}
+
+.col-1, .col-2 .card{
+  background-color: rgb(212, 211, 211);
+}
+
+.col-1 .copy{
+  padding: 0rem 0rem 0rem 2rem;
+}
+
+.col-1 .copy ol {
+  list-style-type: "-";
+}
+.col-1 .copy ol li{
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.col-2 .copy{
+  padding: 0rem 0rem 0rem 1.6rem;
+  border-bottom: 3px black solid;
+}
+
+#catalog{
+  margin-bottom: 5px;
+}
+
+#catalog fieldset legend{
   font-size: 30px;
+}
+
+#catalog fieldset label{
+  font-size: 20px;
+}
+
+#cartContents {
+  margin-top: 20px;
+  margin-left: 1.6rem;
+  background-color: rgb(255, 255, 255);
+}
+
+#cartContents p {
+  font-size: 20px;
+}
+
+/* table style  */
+#cart {
+  margin-left: 1.6rem;
+  width: 15rem;
+}
+
+th{
+  font-size: 30px;
+  padding: 20px 50px 20px 50px;
+  border-top: 2px;
+  border-right: 2px;
+  border-left: 2px;
+  border-color: black;
+  border-style: solid;
+}
+
+td{
+  font-size: 30px;
+  padding: 20px 50px 20px 50px;
+  border-right: 2px;
+  border-left: 2px;
+  border-color: black;
+  border-style: solid;
+}
+
+tr {
+  border-bottom: 1px;
+  border-color: black;
+  border-style: solid;
+}
+
+
+/* footer style */
+footer {
+  position: absolute;
+  bottom: 0;
 }
