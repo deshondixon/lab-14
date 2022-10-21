@@ -16,17 +16,13 @@ function populateForm() {
     ('option');
     option.textContent = Product.allProducts[i].name;
     selectElement.appendChild(option);
-
   }
-
 }
 
 // When someone submits the form, we need to add the selected item to the cart
 // object, save the whole thing back to local storage and update the screen
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
 function handleSubmit(event) {
-
-  // DONE!
   event.preventDefault();
   // Do all the things ...
   addSelectedItemToCart();
@@ -36,26 +32,31 @@ function handleSubmit(event) {
 
 }
 
-// TODO: Add the selected item and quantity to the cart
+//Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
-
-  // DONE!
   let itemPicked = document.getElementById('items').value;
-
-  // DONE!
   let quantityPicked = document.getElementById('quantity').value;
-
-  // DONE!
   cart.addItem(itemPicked, quantityPicked);
 }
 
-// TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() { }
+//Update the cart count in the header nav with the number of items in the Cart
+function updateCounter() { 
+  document.getElementById('itemCount').textContent = ` ${cart.items.length} items(s)`;
+}
 
-// TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
+//As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
-  // TODO: Get the item and quantity from the form
-  // TODO: Add a new element to the cartContents div with that information
+  //Get the item and quantity from the form
+  //Add a new element to the cartContents div with that information
+  let parent = document.getElementById('cartContents');
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+  for(let i in cart.items){
+    let newElement = document.createElement('p');
+    newElement.textContent = `${cart.items[i].product} Quantity: ${cart.items[i].quantity}`;
+    parent.appendChild(newElement);
+  }
 }
 
 // Set up the "submit" event listener on the form.
