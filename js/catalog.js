@@ -17,7 +17,6 @@ function populateForm() {
     option.textContent = Product.allProducts[i].name;
     selectElement.appendChild(option);
   }
-
 }
 
 // When someone submits the form, we need to add the selected item to the cart
